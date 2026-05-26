@@ -1,0 +1,2 @@
+/usr/bin/ar qc libreactor_server.a CMakeFiles/reactor_server.dir/Socket.cpp.o CMakeFiles/reactor_server.dir/epoll.cpp.o CMakeFiles/reactor_server.dir/TcpConnection.cpp.o CMakeFiles/reactor_server.dir/Server.cpp.o CMakeFiles/reactor_server.dir/Logger.cpp.o
+/usr/bin/ranlib libreactor_server.a
