@@ -9,7 +9,7 @@ private:
     std::unique_ptr<Socket> sock_;
     std::string read_buf_;
     
-    // 🌟 经理给的锦囊纸条：当连接关闭时调用
+    //当连接关闭时调用
     std::function<void(int)> close_callback_; 
 
 public:
@@ -21,7 +21,7 @@ public:
 
     int fd() const { return sock_->fd(); }
     
-    // 设置回调函数
+    // 设置回调函数，当连接关闭时调用
     void setCloseCallback(std::function<void(int)> cb) { close_callback_ = cb; }
 
     // 处理读事件

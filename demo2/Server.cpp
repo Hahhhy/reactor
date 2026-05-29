@@ -19,11 +19,8 @@ void Server::handleNewConnection() {
     
     auto conn = std::make_unique<TcpConnection>(client_fd);
     ep_->updateChannel(client_fd, EPOLLIN, EPOLL_CTL_ADD);
-    
-    // 🌟 Server 给 TcpConnection 塞纸条 (使用 Lambda 表达式)
+
     conn->setCloseCallback([this](int fd) {
-        // 当 TcpConnection 说自己要关闭时，Server 会在这里把它从 map 中删掉
-        // 注意：erase 会触发 TcpConnection 的析构函数，从而触发 Socket 析构，最终 close(fd)
         connections_.erase(fd); 
     });
 
