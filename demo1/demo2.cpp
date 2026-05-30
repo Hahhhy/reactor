@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-#include <sys/epoll.h> // 🌟 引入 epoll 相关的头文件
+#include <sys/epoll.h> //  引入 epoll 相关的头文件
 
 const int MAX_EVENTS = 10; // 每次 epoll_wait 最多返回的事件数
 const int PORT = 8080;
@@ -38,8 +38,6 @@ int main() {
     }
     std::cout << "[Server] Listening on port " << PORT << "..." << std::endl;
 
-    // ================== 🌟 Epoll 核心代码开始 ==================
-
     // 3. 创建 epoll 实例 (建监控室)
     int epoll_fd = epoll_create1(0);
     if (epoll_fd == -1) {
@@ -65,7 +63,6 @@ int main() {
 
     // 5. 事件大循环 (Event Loop) —— 这是 Reactor 模式的雏形
     while (true) {
-        // 🌟 保安开始睡觉，死等报警！
         // -1 表示永久阻塞，直到有事件发生
         int num_events = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);
         if (num_events == -1) {
@@ -88,7 +85,7 @@ int main() {
                 }
                 std::cout << "[Epoll] New connection! FD: " << client_fd << std::endl;
 
-                // 🌟 核心操作：把新来的 client_fd 也加到监控室里！
+                //把新来的 client_fd 也加到监控室里！
                 struct epoll_event client_event;
                 client_event.events = EPOLLIN; // 关心客户端发来的数据 (可读)
                 client_event.data.fd = client_fd;
@@ -122,8 +119,6 @@ int main() {
             }
         }
     }
-
-    // ================== 🌟 Epoll 核心代码结束 ==================
 
     close(listen_fd);
     close(epoll_fd);
