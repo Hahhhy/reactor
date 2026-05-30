@@ -3,7 +3,6 @@
 #include <fstream>
 #include <mutex>
 
-// 日志级别枚举
 enum class LogLevel {
     INFO,   // 对应 access log
     ERROR   // 对应 error log
@@ -13,7 +12,7 @@ class Logger {
 private:
     std::ofstream access_file_;
     std::ofstream error_file_;
-    std::mutex mutex_; // 保证多线程写入时的线程安全（为进阶任务做准备）
+    std::mutex mutex_; 
 
     // 私有构造，防止外部实例化
     Logger();

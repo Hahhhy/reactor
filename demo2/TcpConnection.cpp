@@ -20,13 +20,13 @@ void TcpConnection::handleRead() {
     } 
     else if (bytes_read == 0) {
         std::cout << "Client FD " << sock_->fd() << " disconnected." << std::endl;
-        // 🌟 核心：客人走了，触发回调，通知 Server 销毁自己！
+        // 触发回调
         if (close_callback_) {
             close_callback_(sock_->fd()); 
         }
     } 
     else {
-        // read error，也可以当作断开处理
+        // read error，当作断开处理
         if (close_callback_) close_callback_(sock_->fd());
     }
 }
