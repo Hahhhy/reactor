@@ -2,6 +2,8 @@
 #include "Epoll.h"
 #include "Socket.h"
 #include "TcpConnection.h"
+#include "ThreadPool.h"
+#include "Logger.h" 
 #include <memory>
 #include <unordered_map>
 
@@ -9,8 +11,9 @@ class Server {
 private:
     std::unique_ptr<Epoll> ep_;
     std::unique_ptr<Socket> serv_sock_;
-    
     std::unordered_map<int, std::unique_ptr<TcpConnection>> connections_;
+    
+    std::unique_ptr<ThreadPool> thread_pool_; 
 
     void handleNewConnection();
 

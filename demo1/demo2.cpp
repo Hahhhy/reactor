@@ -47,7 +47,7 @@ int main() {
 
     // 4. 将 listen_fd 添加到 epoll 监控中 (装第一个摄像头)
     struct epoll_event event;
-    event.events = EPOLLIN; // 我们关心 "可读" 事件 (有新客户端连接时，listen_fd 会变成可读)
+    event.events = EPOLLIN; //"可读" 事件 (有新客户端连接时，listen_fd 会变成可读)
     event.data.fd = listen_fd; // 记住这个事件是属于哪个 fd 的
 
     // epoll_ctl：操作监控室，EPOLL_CTL_ADD 代表添加
@@ -61,7 +61,7 @@ int main() {
 
     std::cout << "[Server] Epoll instance created. Entering event loop..." << std::endl;
 
-    // 5. 事件大循环 (Event Loop) —— 这是 Reactor 模式的雏形
+    // 5. 事件大循环
     while (true) {
         // -1 表示永久阻塞，直到有事件发生
         int num_events = epoll_wait(epoll_fd, events, MAX_EVENTS, -1);

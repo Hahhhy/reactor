@@ -14,22 +14,16 @@ private:
     std::ofstream error_file_;
     std::mutex mutex_; 
 
-    // 私有构造，防止外部实例化
     Logger();
     ~Logger();
 
 public:
-    // 禁用拷贝
     Logger(const Logger&) = delete;
     Logger& operator=(const Logger&) = delete;
 
-    // 获取全局唯一实例
     static Logger& getInstance();
-
-    // 核心写日志方法
     void log(LogLevel level, const std::string& message);
 
-    // 快捷调用静态方法
     static void Info(const std::string& message);
     static void Error(const std::string& message);
 };

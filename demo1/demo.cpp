@@ -9,7 +9,6 @@
 int main(){
     //创建socket
     int listen_fd=socket(AF_INET,SOCK_STREAM,0);
-    //这些宏定义来自哪里？什么意思
     if(listen_fd==-1){
         perror("socket");
         return -1;
