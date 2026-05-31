@@ -1,0 +1,15 @@
+[2026-05-31 21:08:43] [INFO] Epoll Monitor created successfully with FD: 3
+[2026-05-31 21:08:43] [INFO] Socket FD 6 bound to 0.0.0.0:8080
+[2026-05-31 21:08:43] [INFO] Socket FD 6 is now listening.
+[2026-05-31 21:08:43] [INFO] Server initialized with ThreadPool (4 workers).
+[2026-05-31 21:08:43] [INFO] Server started. Event loop running on Boss thread...
+[2026-05-31 21:12:38] [INFO] New client connected! FD: 7
+[2026-05-31 21:13:41] [INFO] TcpConnection FD 7 destroyed.
+[2026-05-31 21:24:28] [INFO] Epoll Monitor created successfully with FD: 3
+[2026-05-31 21:24:28] [INFO] Socket FD 6 bound to 0.0.0.0:8080
+[2026-05-31 21:24:28] [INFO] Socket FD 6 is now listening.
+[2026-05-31 21:24:28] [INFO] Server initialized with ThreadPool (4 workers).
+[2026-05-31 21:24:28] [INFO] Server started. Event loop running on Boss thread...
+[2026-05-31 21:24:54] [INFO] New client connected! FD: 7
+[2026-05-31 21:25:58] [INFO] Client FD 7 timed out (60s). Kicking out...
+[2026-05-31 21:25:58] [INFO] TcpConnection FD 7 destroyed.
